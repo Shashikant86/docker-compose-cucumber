@@ -1,0 +1,7 @@
+appium:
+  build: .
+  command: bundle exec rake parallel_cucumber
+  volumes:
+    - .:/myapp
+  ports:
+    - "4723:4723"
