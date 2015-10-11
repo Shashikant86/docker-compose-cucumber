@@ -1,4 +1,4 @@
-appium:
+cucumber:
   build: .
   command: bundle exec rake parallel_cucumber
   volumes:
