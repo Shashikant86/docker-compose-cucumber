@@ -8,7 +8,7 @@ cucumber-phantomjs:
 
 cucumber-chome:
   build: .
-  command: bundle exec rake chrome
+  command: bundle exec cucumber -p chrome -f pretty
   volumes:
     - .:/myapp
 
