@@ -1,39 +1,14 @@
 cucumber-phantomjs:
   build: .
-  command: bundle exec rake parallel_cucumber
+  command: bundle exec cucumber -p poltergeist -f pretty
   volumes:
     - .:/myapp
   ports:
     - "4777:4777"
 
-cucumber-chome:
+cucumber-firefox:
   build: .
-  command: bundle exec cucumber -p chrome -f pretty
+  command: bundle exec cucumber -p browserstack -f pretty
   volumes:
     - .:/myapp
 
-# cucumber-firefox:
-#   build: .
-#   command: bundle exec rake selenium
-#   volumes:
-#     - .:/myapp
-#
-# cucumber-saucelabs:
-#   build: .
-#   command: bundle exec rake sauce
-#   volumes:
-#     - .:/myapp
-#
-# cucumber-browserstack:
-#   build: .
-#   command: bundle exec rake browserstack
-#   volumes:
-#     - .:/myapp
-#
-# cucumber-appium:
-#   build: .
-#   command: bundle exec cucumber -p appium_android_web -f pretty
-#   volumes:
-#     - .:/myapp
-#   ports:
-#     - "4723:4723"
