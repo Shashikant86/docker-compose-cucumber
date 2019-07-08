@@ -6,9 +6,9 @@ cucumber-phantomjs:
   ports:
     - "4777:4777"
 
-cucumber-firefox:
-  build: .
-  command: bundle exec cucumber -p browserstack -f pretty
-  volumes:
-    - .:/myapp
+# cucumber-firefox:
+#   build: .
+#   command: bundle exec cucumber -p browserstack -f pretty
+#   volumes:
+#     - .:/myapp
 
