@@ -1,6 +1,9 @@
 FROM ruby:2.2.0
 MAINTAINER Shashikant jagtap <shashikant.jagtap@aol.co.uk>
 
+# install key, see https://unix.stackexchange.com/questions/75807/no-public-key-available-on-apt-get-update
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get update
 RUN apt-get install -y wget
@@ -21,6 +24,9 @@ RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y unzip
 RUN apt-get install -y android-tools-adb
+
+
+
 RUN apt-get install -y openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get install -y vim
 RUN apt-get -y install nodejs-legacy
