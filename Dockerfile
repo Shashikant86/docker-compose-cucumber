@@ -1,5 +1,7 @@
-FROM ruby:2.2.0
+FROM ruby:2.3.0
 MAINTAINER Shashikant jagtap <shashikant.jagtap@aol.co.uk>
+
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get update
@@ -21,6 +23,9 @@ RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y unzip
 RUN apt-get install -y android-tools-adb
+
+
+
 RUN apt-get install -y openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get install -y vim
 RUN apt-get -y install nodejs-legacy
