@@ -1,8 +1,22 @@
-FROM ruby:2.2.0
+FROM ruby:2.6.2
 MAINTAINER Shashikant jagtap <shashikant.jagtap@aol.co.uk>
 
 # install key, see https://unix.stackexchange.com/questions/75807/no-public-key-available-on-apt-get-update
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
+# RUN aptitude install debian-keyring debian-archive-keyring
+# RUN apt-get install debian-archive-keyring
+# RUN apt-get install debian-keyring debian-archive-keyring
+
+# RUN gpg --recv-keys AA8E81B4331F7F50
+#
+# RUN gpg --export AA8E81B4331F7F50 | apt-key add -
+#
+# RUN apt-key update
+
+# RUN apt-get -qq update && apt-get -qq -y install libbz2-dev bzip2
+
+RUN add-apt-repository ppa:openjdk-r/ppa
+RUN apt-get update   
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get update
