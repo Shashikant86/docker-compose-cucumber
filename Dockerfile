@@ -1,4 +1,4 @@
-FROM ruby:2.6.2
+FROM ruby:2.3.0
 MAINTAINER Shashikant jagtap <shashikant.jagtap@aol.co.uk>
 
 # install key, see https://unix.stackexchange.com/questions/75807/no-public-key-available-on-apt-get-update
@@ -15,8 +15,10 @@ MAINTAINER Shashikant jagtap <shashikant.jagtap@aol.co.uk>
 
 # RUN apt-get -qq update && apt-get -qq -y install libbz2-dev bzip2
 
-RUN add-apt-repository ppa:openjdk-r/ppa
-RUN apt-get update   
+# RUN add-apt-repository ppa:openjdk-r/ppa
+# RUN apt-get update
+
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openjdk-7-jre-headless lib32z1 lib32ncurses5 g++-multilib
 RUN apt-get update
